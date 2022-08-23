@@ -11,13 +11,13 @@ const app = () => {
   return(
     <BrowserRouter>
       <Navbar/>
-      <div className='px-4'>
+      <div className='px-8'>
         <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path='/associations' element={<Associations/>}/>
-          <Route path='/associations/admin' element={<Admin/>}/>
-          <Route path='/associations/contact' element={<Contact/>}/>
-          <Route path='/associations/association/:slug' element={<Association/>}/>
+          <Route path='/admin' element={<Admin/>}/>
+          <Route path='/messages' element={<Contact/>}/>
+          <Route path='/associations/:slug' element={<Association/>}/>
         </Routes>
       </div>
     </BrowserRouter>

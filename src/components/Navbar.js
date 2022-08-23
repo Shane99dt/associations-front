@@ -34,10 +34,10 @@ const Navbar = () => {
             <Link to='/' className=" hover:text-cyan-500 duration-500" onClick={handleClickBurger}>HOME</Link>
           </li>
           <li className="mx-4 my-2 md:my-0">
-            <Link to='/associations/contact' className=" hover:text-cyan-500 duration-500" onClick={handleClickBurger}>Contact</Link>
+            <Link to='/messages' className=" hover:text-cyan-500 duration-500" onClick={handleClickBurger}>Contact</Link>
           </li>
           <li className="mx-4 my-2 md:my-0">
-            <Link to='/associations/admin' className=" hover:text-cyan-500 duration-500" onClick={handleClickBurger}>Admin</Link>
+            <Link to='/admin' className=" hover:text-cyan-500 duration-500" onClick={handleClickBurger}>Admin</Link>
           </li>
         </ul>
       </nav>

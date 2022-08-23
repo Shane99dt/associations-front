@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { Link } from "react-router-dom"
+import moment from "moment"
 
 const Admin = () => {
   const [ messages, setMessages ] = useState([])
@@ -10,7 +10,7 @@ const Admin = () => {
   }, [])
 
   const fetchMessages = async () => {
-    const request = await fetch('http://localhost:5000/associations/messages')
+    const request = await fetch('http://localhost:5000/messages')
     const response = await request.json()
     setMessages(response)
   }
@@ -24,7 +24,6 @@ const Admin = () => {
       setMessages(filteredMessages)
     }
   }
-
 
 
   if(!messages){
@@ -43,37 +42,31 @@ const Admin = () => {
 
       { filter === '' ? (
         <ul>
-        {messages.map(msg => {
+        {messages.map((msg, id) => {
           return(
-            <>
-              <li className="mb-3 border-2 border-gray-300">
-                <p>association slug: {msg.slug}</p>
-                <p>name: {msg.name}</p>
-                <p>message: {msg.message}</p>
-                <p>time: {msg.time}</p>
-              </li>
-            </>
+            <li key={id} className="mb-3 border-2 border-gray-300">
+              <p>association slug: {msg.slug}</p>
+              <p>name: {msg.name}</p>
+              <p>message: {msg.message}</p>
+              <p>time: {moment(`${msg.time}`).format('LLL')}</p>
+            </li>
           )
         })}
       </ul>
       ): (
         <ul>
-        {messages.map(msg => {
+        {messages.map((msg, id) => {
           return(
-            <>
-              <li className="mb-3 border-2 border-gray-300">
-                <p>association slug: {msg.slug}</p>
-                <p>name: {msg.name}</p>
-                <p>message: {msg.message}</p>
-                <p>time: {msg.time}</p>
-              </li>
-            </>
+            <li key={id} className="mb-3 border-2 border-gray-300">
+              <p>association slug: {msg.slug}</p>
+              <p>name: {msg.name}</p>
+              <p>message: {msg.message}</p>
+              <p>time: {msg.time}</p>
+            </li>
           )
         })}
       </ul>
       )}
-
-
     </>
   )
 }

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import Contact from "./Contact"
+import moment from 'moment'
 
 const Association = () => {
   const [ association, setAssociation ] = useState("")
@@ -15,13 +15,13 @@ const Association = () => {
 
 
   const fetchAssociation = async () => {
-    const request = await fetch(`http://localhost:5000/associations/association/${slug}`)
+    const request = await fetch(`http://localhost:5000/associations/${slug}`)
     const response = await request.json()
     setAssociation(response)
   }
 
   const fetchMessages = async () => {
-    const request = await fetch(`http://localhost:5000/associations/association/${slug}/messages`)
+    const request = await fetch(`http://localhost:5000/messages/${slug}`)
     const response = await request.json()
     setMessages(response)
   }
@@ -43,12 +43,12 @@ const Association = () => {
       <section className="mt-4">
         <h2 className="capitalize text-3xl text-gray-300 font-medium">messages</h2>
         <ul className="py-4">
-          {messages.map(msg => {
+          {messages.map((msg, id) => {
             return(
-              <li className="border border-gray-500 p-3 rounded-md border-collapse mb-2">
+              <li key={id} className="border border-gray-500 p-3 rounded-md border-collapse mb-2">
                 <p className="font-medium text-lg text-slate-400">{msg.name}</p>
                 <p className="text-gray-400">{msg.message}</p>
-                <small className="text-gray-600">{msg.time}</small>
+                <small className="text-gray-600">{moment(`${msg.time}`).format('LLL')}</small>
               </li>
             )
           })}

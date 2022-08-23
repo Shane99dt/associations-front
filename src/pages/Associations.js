@@ -15,7 +15,6 @@ const Associations = () => {
   }
 
 
-
   if(!associations){
     return <p>Loading</p>
   }
@@ -25,7 +24,7 @@ const Associations = () => {
       <h1 className="text-4xl text-center pt-5 text-gray-300 font-medium">Associations</h1>
       <ul className="font-medium text-xl text-gray-400 pt-5 flex flex-col gap-3">
         {associations.map(association => {
-          return <Link className="capitalize" to={`/associations/association/${association.slug}`}>
+          return <Link key={association.slug} className="capitalize" to={`/associations/${association.slug}`}>
             <li className="border rounded-md px-2 py-1 hover:bg-gray-700">
               {association.name}
             </li>
