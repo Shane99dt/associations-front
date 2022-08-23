@@ -4,6 +4,7 @@ import moment from "moment"
 const Admin = () => {
   const [ messages, setMessages ] = useState([])
   const [ filter, setFilter ] = useState("")
+  const [ updatedMessages, setUpdatedMessages ] = useState([])
 
   useEffect(() => {
     fetchMessages()
@@ -18,50 +19,51 @@ const Admin = () => {
   const changeFilter = (status) => {
     if(status === ""){
       setFilter(status)
+      setUpdatedMessages(messages)
     }else{
       const filteredMessages = messages.filter(message => message.slug === status)
       setFilter(status)
-      setMessages(filteredMessages)
+      setUpdatedMessages(filteredMessages)
     }
   }
 
 
-  if(!messages){
+  if(!messages || !updatedMessages){
     return <p>Loading</p>
   }
 
   return (
     <>
-      <h1>All messages</h1>
-      <section className="flex flex-row gap-2">
-        <button className="border-2 border-gray-400 py-1 px-2 rounded-md" onClick={() => changeFilter('')}>All</button>
-        <button className="border-2 border-gray-400 py-1 px-2 rounded-md" onClick={() => changeFilter('les-restos-du-coeur')}>les restos du coeur</button>
-        <button className="border-2 border-gray-400 py-1 px-2 rounded-md" onClick={() => changeFilter('unicef')}>unicef</button>
-        <button className="border-2 border-gray-400 py-1 px-2 rounded-md" onClick={() => changeFilter('konexio')}>konexio</button>
+      <h1 className="text-4xl text-center pt-5 text-gray-300 font-medium capitalize">All messages</h1>
+      <section className="flex flex-row gap-2 py-4 text-gray-400 text-lg">
+        <button className="capitalize border rounded-md px-2 py-1 hover:bg-gray-700" onClick={() => changeFilter('')}>All</button>
+        <button className="capitalize border rounded-md px-2 py-1 hover:bg-gray-700" onClick={() => changeFilter('les-restos-du-coeur')}>les restos du coeur</button>
+        <button className="capitalize border rounded-md px-2 py-1 hover:bg-gray-700" onClick={() => changeFilter('unicef')}>unicef</button>
+        <button className="capitalize border rounded-md px-2 py-1 hover:bg-gray-700" onClick={() => changeFilter('konexio')}>konexio</button>
       </section>
 
       { filter === '' ? (
         <ul>
-        {messages.map((msg, id) => {
+        {updatedMessages.map((msg, id) => {
           return(
-            <li key={id} className="mb-3 border-2 border-gray-300">
-              <p>association slug: {msg.slug}</p>
-              <p>name: {msg.name}</p>
-              <p>message: {msg.message}</p>
-              <p>time: {moment(`${msg.time}`).format('LLL')}</p>
+            <li key={id} className="mb-3 border-2 border-gray-600 text-gray-400 px-4 py-2 rounded flex flex-col gap-2">
+              <p className="capitalize"><span className="font-medium text-slate-500 pr-2">association slug :</span> {msg.slug}</p>
+              <p className="capitalize"><span className="font-medium text-slate-500 pr-2">name :</span> {msg.name}</p>
+              <p className="capitalize"><span className="font-medium text-slate-500 pr-2">message :</span> {msg.message}</p>
+              <p className="capitalize"><span className="font-medium text-slate-500 pr-2">time :</span> {moment(`${msg.time}`).format('LLL')}</p>
             </li>
           )
         })}
       </ul>
       ): (
         <ul>
-        {messages.map((msg, id) => {
+        {updatedMessages.map((msg, id) => {
           return(
-            <li key={id} className="mb-3 border-2 border-gray-300">
-              <p>association slug: {msg.slug}</p>
-              <p>name: {msg.name}</p>
-              <p>message: {msg.message}</p>
-              <p>time: {msg.time}</p>
+            <li key={id} className="mb-3 border-2 border-gray-600 text-gray-400 px-4 py-2 rounded flex flex-col gap-2">
+              <p className="capitalize"><span className="font-medium text-slate-500 pr-2">association slug :</span> {msg.slug}</p>
+              <p className="capitalize"><span className="font-medium text-slate-500 pr-2">name :</span> {msg.name}</p>
+              <p className="capitalize"><span className="font-medium text-slate-500 pr-2">message :</span> {msg.message}</p>
+              <p className="capitalize"><span className="font-medium text-slate-500 pr-2">time :</span> {moment(`${msg.time}`).format('LLL')}</p>
             </li>
           )
         })}
