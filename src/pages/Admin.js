@@ -13,6 +13,7 @@ const Admin = () => {
   const fetchMessages = async () => {
     const request = await fetch('http://localhost:5000/messages')
     const response = await request.json()
+    setUpdatedMessages(response)
     setMessages(response)
   }
 
