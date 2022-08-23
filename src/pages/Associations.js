@@ -25,7 +25,7 @@ const Associations = () => {
       <ul className="font-medium text-xl text-gray-400 pt-5 flex flex-col gap-3">
         {associations.map(association => {
           return <Link key={association.slug} className="capitalize" to={`/associations/${association.slug}`}>
-            <li className="border rounded-md px-2 py-1 hover:bg-gray-700">
+            <li className="border rounded-md px-2 py-1 hover:bg-gray-700 hover:scale-105 transition ease-in duration-200">
               {association.name}
             </li>
           </Link>

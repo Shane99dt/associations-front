@@ -11,7 +11,7 @@ const app = () => {
   return(
     <BrowserRouter>
       <Navbar/>
-      <div className='px-8'>
+      <div className='md:px-8 px-4'>
         <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path='/associations' element={<Associations/>}/>

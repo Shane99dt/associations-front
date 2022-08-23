@@ -34,10 +34,10 @@ const Association = () => {
 
   return(
     <>
-      <h1 className="text-4xl text-center pt-5 text-gray-300 font-medium capitalize">{association.name}</h1>
-      <p className="font-medium text-xl text-gray-600 text-center pt-2">"{association.slogan}"</p>
+      <h1 className="md:text-4xl text-3xl text-center pt-5 text-gray-300 font-medium capitalize">{association.name}</h1>
+      <p className="font-medium md:text-xl text-lg text-gray-600 text-center pt-2">"{association.slogan}"</p>
       <div className="flex justify-center py-4">
-        <img src={association.image} alt="association image" className="h-80"/>
+        <img src={association.image} alt="association image" className="md:h-80 sm:h-60 h-50"/>
       </div>
       <p className="text-gray-400">{association.description}</p>
       <section className="mt-4">
