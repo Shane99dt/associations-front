@@ -36,10 +36,10 @@ const Admin = () => {
     <>
       <h1 className="text-4xl text-center pt-5 text-gray-300 font-medium capitalize">All messages</h1>
       <section className="flex flex-row gap-2 py-4 text-gray-400 text-lg">
-        <button className="capitalize border rounded-md px-2 py-1 hover:bg-gray-700" onClick={() => changeFilter('')}>All</button>
-        <button className="capitalize border rounded-md px-2 py-1 hover:bg-gray-700" onClick={() => changeFilter('les-restos-du-coeur')}>les restos du coeur</button>
-        <button className="capitalize border rounded-md px-2 py-1 hover:bg-gray-700" onClick={() => changeFilter('unicef')}>unicef</button>
-        <button className="capitalize border rounded-md px-2 py-1 hover:bg-gray-700" onClick={() => changeFilter('konexio')}>konexio</button>
+        <button className="capitalize border rounded-md px-2 py-1 hover:bg-gray-700 active:bg-gray-500 active:text-gray-900 focus:bg-gray-500 focus:text-gray-900" onClick={() => changeFilter('')}>All</button>
+        <button className="capitalize border rounded-md px-2 py-1 hover:bg-gray-700 active:bg-gray-500 active:text-gray-900 focus:bg-gray-500 focus:text-gray-900" onClick={() => changeFilter('les-restos-du-coeur')}>les restos du coeur</button>
+        <button className="capitalize border rounded-md px-2 py-1 hover:bg-gray-700 active:bg-gray-500 active:text-gray-900 focus:bg-gray-500 focus:text-gray-900" onClick={() => changeFilter('unicef')}>unicef</button>
+        <button className="capitalize border rounded-md px-2 py-1 hover:bg-gray-700 active:bg-gray-500 active:text-gray-900 focus:bg-gray-500 focus:text-gray-900" onClick={() => changeFilter('konexio')}>konexio</button>
       </section>
 
       { filter === '' ? (
